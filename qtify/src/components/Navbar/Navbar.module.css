@@ -7,3 +7,9 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  padding-left: 32px;
+}
