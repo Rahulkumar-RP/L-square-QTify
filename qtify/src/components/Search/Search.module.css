@@ -1,11 +1,26 @@
 .search {
-  padding: 14px 20px;
+  padding: 10px 16px;
   height: 100%;
   border-radius: 8px;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
   border: 1px solid var(--color-black);
   width: 502px;
+  font-family: "Poppins", sans-serif;
+}
+
+@media (max-width: 1024px) {
+  .search {
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .search {
+    width: 260px;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
 }
 
 .wrapper {
@@ -14,13 +29,20 @@
   height: 48px;
 }
 
+@media (max-width: 768px) {
+  .wrapper {
+    height: 38px;
+  }
+}
+
 .searchButton {
   border-radius: 0px 8px 8px 0px;
-  padding: 14px 20px;
+  padding: 10px 16px;
   height: 100%;
   border: 1px solid var(--color-black);
   border-left: none;
   cursor: pointer;
+  background: white;
 }
 
 .listElement {

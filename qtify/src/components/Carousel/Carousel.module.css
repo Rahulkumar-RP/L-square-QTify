@@ -1,0 +1,40 @@
+.carouselContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swiper {
+  flex: 1;
+  overflow: hidden;
+}
+
+.navBtnWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.navBtn {
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.navBtn:hover {
+  opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+  .navBtn {
+    display: none;
+  }
+}

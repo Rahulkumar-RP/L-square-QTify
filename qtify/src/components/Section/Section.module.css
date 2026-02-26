@@ -3,6 +3,12 @@
   background-color: #121212;
 }
 
+@media (max-width: 768px) {
+  .section {
+    padding: 16px;
+  }
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -17,6 +23,12 @@
   font-weight: 600;
 }
 
+@media (max-width: 768px) {
+  .title {
+    font-size: 14px;
+  }
+}
+
 .toggleBtn {
   background: none;
   border: none;
@@ -25,10 +37,23 @@
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .toggleBtn {
+    font-size: 12px;
+  }
 }
 
 .grid {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    gap: 12px;
+  }
 }

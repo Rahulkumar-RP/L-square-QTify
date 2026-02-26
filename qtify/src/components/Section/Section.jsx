@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Section.module.css";
 import Card from "../Card/Card";
+import Carousel from "../Carousel/Carousel";
 import axios from "axios";
 
-function Section({ title, apiUrl }) {
+function Section({ title, apiUrl, defaultView = "grid" }) {
   const [albums, setAlbums] = useState([]);
-  const [collapsed, setCollapsed] = useState(false);
+  const [isGrid, setIsGrid] = useState(defaultView === "grid");
 
   useEffect(() => {
     axios
@@ -14,23 +15,25 @@ function Section({ title, apiUrl }) {
       .catch((err) => console.error(err));
   }, [apiUrl]);
 
+  const cards = albums.map((album) => (
+    <Card key={album.id} data={album} />
+  ));
+
   return (
     <div className={styles.section}>
       <div className={styles.header}>
         <h2 className={styles.title}>{title}</h2>
         <button
           className={styles.toggleBtn}
-          onClick={() => setCollapsed(!collapsed)}
+          onClick={() => setIsGrid(!isGrid)}
         >
-          {collapsed ? "Show all" : "Collapse"}
+          {isGrid ? "Collapse" : "Show all"}
         </button>
       </div>
-      {!collapsed && (
-        <div className={styles.grid}>
-          {albums.map((album) => (
-            <Card key={album.id} data={album} />
-          ))}
-        </div>
+      {isGrid ? (
+        <div className={styles.grid}>{cards}</div>
+      ) : (
+        <Carousel>{cards}</Carousel>
       )}
     </div>
   );
