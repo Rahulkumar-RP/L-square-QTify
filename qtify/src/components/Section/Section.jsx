@@ -4,9 +4,9 @@ import Card from "../Card/Card";
 import Carousel from "../Carousel/Carousel";
 import axios from "axios";
 
-function Section({ title, apiUrl, defaultView = "grid" }) {
+function Section({ title, apiUrl }) {
   const [albums, setAlbums] = useState([]);
-  const [isGrid, setIsGrid] = useState(defaultView === "grid");
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     axios
@@ -25,12 +25,12 @@ function Section({ title, apiUrl, defaultView = "grid" }) {
         <h2 className={styles.title}>{title}</h2>
         <button
           className={styles.toggleBtn}
-          onClick={() => setIsGrid(!isGrid)}
+          onClick={() => setShowAll(!showAll)}
         >
-          {isGrid ? "Collapse" : "Show all"}
+          {showAll ? "Collapse" : "Show all"}
         </button>
       </div>
-      {isGrid ? (
+      {showAll ? (
         <div className={styles.grid}>{cards}</div>
       ) : (
         <Carousel>{cards}</Carousel>
