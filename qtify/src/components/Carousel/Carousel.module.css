@@ -1,3 +1,9 @@
+.carouselWrapper {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
 .carouselContainer {
   width: 100%;
   display: flex;
@@ -8,11 +14,13 @@
 .swiper {
   flex: 1;
   overflow: hidden;
+  padding: 4px 2px !important;
 }
 
 .navBtnWrapper {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .navBtn {

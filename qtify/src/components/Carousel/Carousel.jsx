@@ -27,30 +27,33 @@ function Carousel({ children }) {
   const swiperRef = useRef(null);
 
   return (
-    <div className={styles.carouselContainer}>
-      <div className={styles.navBtnWrapper}>
-        <LeftArrow onClick={() => swiperRef.current?.slidePrev()} />
-      </div>
-      <Swiper
-        onSwiper={(swiper) => (swiperRef.current = swiper)}
-        spaceBetween={16}
-        breakpoints={{
-          0:    { slidesPerView: 2, spaceBetween: 12 },
-          480:  { slidesPerView: 3, spaceBetween: 14 },
-          768:  { slidesPerView: 4, spaceBetween: 16 },
-          1024: { slidesPerView: 5, spaceBetween: 16 },
-          1280: { slidesPerView: 7, spaceBetween: 16 },
-        }}
-        className={styles.swiper}
-      >
-        {React.Children.map(children, (child, index) => (
-          <SwiperSlide key={index}>
-            {child}
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      <div className={styles.navBtnWrapper}>
-        <RightArrow onClick={() => swiperRef.current?.slideNext()} />
+    <div className={styles.carouselWrapper}>
+      <div className={styles.carouselContainer}>
+        <div className={styles.navBtnWrapper}>
+          <LeftArrow onClick={() => swiperRef.current?.slidePrev()} />
+        </div>
+        <Swiper
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          spaceBetween={16}
+          breakpoints={{
+            0:    { slidesPerView: 2, spaceBetween: 10 },
+            480:  { slidesPerView: 3, spaceBetween: 12 },
+            768:  { slidesPerView: 4, spaceBetween: 14 },
+            1024: { slidesPerView: 5, spaceBetween: 16 },
+            1280: { slidesPerView: 7, spaceBetween: 16 },
+            1800: { slidesPerView: 8, spaceBetween: 16 },
+          }}
+          className={styles.swiper}
+        >
+          {React.Children.map(children, (child, index) => (
+            <SwiperSlide key={index}>
+              {child}
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <div className={styles.navBtnWrapper}>
+          <RightArrow onClick={() => swiperRef.current?.slideNext()} />
+        </div>
       </div>
     </div>
   );
