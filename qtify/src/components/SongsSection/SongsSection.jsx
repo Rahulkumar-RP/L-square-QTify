@@ -5,7 +5,7 @@ import Carousel from "../Carousel/Carousel";
 import axios from "axios";
 import { Tabs, Tab } from "@mui/material";
 
-function SongsSection() {
+function SongsSection({ onSongClick }) {
   const [songs, setSongs] = useState([]);
   const [genres, setGenres] = useState([]);
   const [selectedTab, setSelectedTab] = useState("all");
@@ -25,7 +25,9 @@ function SongsSection() {
     : songs.filter((song) => song.genre.key === selectedTab);
 
   const cards = filteredSongs.map((song) => (
-    <Card key={song.id} data={song} isSong={true} />
+    <div key={song.id} onClick={() => onSongClick && onSongClick(song)} style={{ cursor: "pointer" }}>
+      <Card data={song} isSong={true} />
+    </div>
   ));
 
   return (
@@ -42,23 +44,13 @@ function SongsSection() {
             indicator: styles.tabIndicator,
           }}
         >
-          <Tab
-            label="All"
-            value="all"
-            classes={{
-              root: styles.tabRoot,
-              selected: styles.tabSelected,
-            }}
-          />
+          <Tab label="All" value="all" classes={{ root: styles.tabRoot, selected: styles.tabSelected }} />
           {genres.map((genre) => (
             <Tab
               key={genre.key}
               label={genre.label}
               value={genre.key}
-              classes={{
-                root: styles.tabRoot,
-                selected: styles.tabSelected,
-              }}
+              classes={{ root: styles.tabRoot, selected: styles.tabSelected }}
             />
           ))}
         </Tabs>

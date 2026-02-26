@@ -1,28 +1,3 @@
-.search {
-  padding: 10px 16px;
-  height: 100%;
-  border-radius: 8px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-  border: 1px solid var(--color-black);
-  width: 502px;
-  font-family: "Poppins", sans-serif;
-}
-
-@media (max-width: 1024px) {
-  .search {
-    width: 300px;
-  }
-}
-
-@media (max-width: 768px) {
-  .search {
-    width: 260px;
-    padding: 8px 10px;
-    font-size: 12px;
-  }
-}
-
 .wrapper {
   display: flex;
   align-items: stretch;
@@ -35,26 +10,98 @@
   }
 }
 
+.search {
+  padding: 10px 16px;
+  height: 100%;
+  border-radius: 8px 0 0 8px;
+  border: 1px solid var(--color-black);
+  border-right: none;
+  width: 502px;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  outline: none;
+}
+
+@media (max-width: 1024px) {
+  .search {
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .search {
+    width: 240px;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+}
+
 .searchButton {
-  border-radius: 0px 8px 8px 0px;
+  border-radius: 0 8px 8px 0;
   padding: 10px 16px;
   height: 100%;
   border: 1px solid var(--color-black);
   border-left: none;
   cursor: pointer;
   background: white;
-}
-
-.listElement {
-  padding: 15px;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
 }
 
-.albumTitle {
-  font-size: 16px;
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #1a1a1a;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  z-index: 999;
+  max-height: 320px;
+  overflow-y: auto;
+  margin-top: 4px;
 }
 
-.albumArtists {
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.dropdownItem:hover {
+  background-color: #34C94B;
+}
+
+.dropdownItem:hover .itemTitle,
+.dropdownItem:hover .itemArtists {
+  color: #000000;
+}
+
+.itemImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemTitle {
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.itemArtists {
+  color: #999999;
+  font-family: "Poppins", sans-serif;
   font-size: 12px;
 }

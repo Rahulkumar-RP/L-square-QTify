@@ -4,15 +4,12 @@ import Logo from "../Logo/Logo";
 import Search from "../Search/Search";
 import styles from "./Navbar.module.css";
 
-function Navbar({ searchData }) {
+function Navbar({ onFeedbackClick }) {
   return (
     <nav className={styles.navbar}>
       <Logo />
-      <Search
-        placeholder="Search a album of your choice"
-        searchData={searchData}
-      />
-      <Button>Give Feedback</Button>
+      <Search placeholder="Search a album of your choice" />
+      <Button onClick={onFeedbackClick}>Give Feedback</Button>
     </nav>
   );
 }
